@@ -60,3 +60,40 @@ async function askquestions() {
       employees.push(
         new Engineer(res.name, res.id, res.email, gitHub.gitHubUserName)
       );
+      addAnotherEmployee();
+      break;
+    case "Intern":
+      const school = await inquirer.prompt([
+        {
+          type: "input",
+          name: "schoolName",
+          message: "Which school does the intern go to?"
+        }
+      ]);
+      employees.push(
+        new Intern(res.name, res.id, res.email, school.schoolName)
+      );
+      addAnotherEmployee();
+      break;
+    default:
+  }
+}
+askquestions();
+
+async function addAnotherEmployee() {
+  const addMoreEmployee = await inquirer.prompt([
+    {
+      type: "confirm",
+      name: "addAgain",
+      message: "Do you want to add another employee?"
+    }
+  ]);
+  
+  addMoreEmployee.addAgain == true ? askquestions() : buildTeam(employees);
+}
+function buildTeam(employees) {
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+  fs.writeFileSync(outputPath, render(employees), "utf-8");
+}
