@@ -1,7 +1,7 @@
 # Team Profile Generator
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/FullStackForce)
 
-![FullStackForce](team-generator.gif)
+![Team Profile Generator](terminal.gif)
 
 ## Description
 ​
@@ -43,7 +43,7 @@ This project is licensed under the MIT license.
 ​
 To run tests, run the following command:
 ​
-npm test
+node app.js and follow the instructions
 ​
 ## Questions
 ​
